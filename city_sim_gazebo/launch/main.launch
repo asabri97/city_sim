@@ -14,18 +14,16 @@
 	<arg name="verbose" value="true" />
   </include>
 
-	<arg name="platform" default="$(optenv CPR_GAZEBO_PLATFORM husky)" />
-    <arg name="x" default="1.0"/>
-    <arg name="y" default="1.0"/>
-    <arg name="z" default="0.0"/>
-    <arg name="yaw" default="0.0" />
 
-	   <include file="$(find city_sim_gazebo)/launch/spawn_$(arg platform).launch">
-      <arg name="x" value="$(arg x)"/>
-      <arg name="y" value="$(arg y)"/>
-      <arg name="z" value="$(arg z)"/>
-      <arg name="yaw" value="$(arg yaw)"/>
+    <include file="$(find city_sim_gazebo)/launch/spawn_husky.launch">
+        <arg name="x" default="1.0"/>
+        <arg name="y" default="1.0"/>
+        <arg name="z" default="0.0"/>
+        <arg name="yaw" default="0.0" />
     </include>
+
+
+
 
 	<!-- drone1 -->
 	<group ns="drone1">
@@ -37,7 +35,7 @@
         	controller/position
         	"/>
 			<arg name="name" value="drone1" />
-			<arg name="tf_prefix" value="drone1" />
+            <arg name="tf_prefix" value="drone1" />
 			<arg name="y" value="-1.0" />
 			<arg name="z" value="0.1" />
 		</include>
